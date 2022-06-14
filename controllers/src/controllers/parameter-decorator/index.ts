@@ -89,7 +89,7 @@ export default class ParameterDecoratorController extends ControllerBase {
         @Parameter('header', 'x-ego-1') xEgo1: string | null | undefined,
         @Parameter('header', 'x-ego-2', 'float') xEgo2: number | null | undefined
     ) {
-        // example: http://localhost:8080/parameter-decorator/test4
+        // example: http://localhost:8080/parameter-decorator/test3/headers
         //          and submit the following HTTP headers:
         //          - x-ego-1
         //          - x-ego-2
