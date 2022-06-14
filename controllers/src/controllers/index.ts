@@ -51,7 +51,7 @@ export default class IndexController extends ControllerBase {
     // because:
     // 1.) the relative path of this file is `/index.ts`
     //     so we do not have a suffix here
-    // 2.) the name of this method is `foo`
+    // 2.) the name of this method is `FOO`
     //     so we add this as suffix
     // 3.) we do not have an explicit path defined
     //     with `@GET()`
