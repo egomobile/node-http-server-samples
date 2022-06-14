@@ -32,7 +32,7 @@ import {
 // and be marked with `@Controller()` decorator
 @Controller()
 export default class Test1FooBarParameterController extends ControllerBase {
-    // the full path is: http://localhost:8080/parameters/:foo/:bar
+    // the full path is: http://localhost:8080/url-parameters/:foo/:bar
     // while value of `foo` will be written to `request.params.foo`
     //
     // because:
