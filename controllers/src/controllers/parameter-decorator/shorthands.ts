@@ -29,6 +29,7 @@ import {
     IHttpRequest,
     IHttpResponse,
     json,
+    PATCH,
     POST,
     Query,
     Request,
@@ -134,21 +135,24 @@ export default class ParameterDecoratorShorthandsController extends ControllerBa
     // because:
     // - relative path is `/parameter-decorator/shorthands.ts`
     //   and `shorthands` will be used as first suffix
-    // - we defined an explicit path with `@POST()`, which is used as 2nd suffix
+    // - we defined an explicit path with `@PATCH()`, which is used as 2nd suffix
     // - anything else is ignored
-    @POST({
+    @PATCH({
         path: '/body/yaml',
         use: [yaml()]
     })
     async yamlBody(
         request: IHttpRequest, response: IHttpResponse,
 
-        // extract value `request.body`
-        @Body() body: any,
+        // extract parsed object(s) in `request.body`
+        // and convert to a JSON string
+        // before write to `body` parameter of this method
+        @Body(({ source }) => JSON.stringify(source, null, 2))
+        body: string
     ) {
         // YAML data will always converted into an array
         // of objects, even if there is only one
-        response.write(`YAML body: ${JSON.stringify(body, null, 2)} (${typeof body})`);
+        response.write(`YAML body: ${body} (${typeof body})`);
     }
 
     // the full path is: http://localhost:8080/parameter-decorator/shorthands/request-response?foo=1&bar=2

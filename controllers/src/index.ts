@@ -49,8 +49,8 @@ async function main() {
     app.controllers({
         rootDir: path.join(__dirname, 'controllers'),
         patterns: '*.+(ts)',  // in this scenarios we only want .ts files
-                              // s. https://github.com/isaacs/minimatch for more information
-        
+        // s. https://github.com/isaacs/minimatch for more information
+
         // s. controllers/imports/index.ts
         imports: {
             foo: 'Marcel',

@@ -23,7 +23,7 @@
 import {
     Controller,
     ControllerBase,
-    GET,
+    DELETE,
     IHttpRequest,
     IHttpResponse,
 } from "@egomobile/http-server";
@@ -37,9 +37,9 @@ export default class Test1FooParameterController extends ControllerBase {
     // - the relative path is `/url-parameters/test1/index.ts`
     // - all directories and files with `@` prefix in a path,
     //   will be converted to URL parameters
-    // - the method name is `index` and no explicit path is defined in `@GET()`
+    // - the method name is `index` and no explicit path is defined in `@DELETE()`
     //   so no suffix is added
-    @GET()
+    @DELETE()
     async index(request: IHttpRequest, response: IHttpResponse) {
         // example: http://localhost:8080/url-parameters/test1/Tanja%20K
         //
