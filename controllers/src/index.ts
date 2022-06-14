@@ -25,6 +25,10 @@ import cors from 'cors';  // npm i cors && npm i -D @types/cors
 import createServer from '@egomobile/http-server';
 import path from 'path';
 
+function getBaz(): string {
+    return 'Kloubert';
+}
+
 async function main() {
     const app = createServer();
 
@@ -44,8 +48,16 @@ async function main() {
     // inside /controllers sub directory
     app.controllers({
         rootDir: path.join(__dirname, 'controllers'),
-        patterns: '*.+(ts)'  // in this scenarios we only want .ts files
-                             // s. https://github.com/isaacs/minimatch for more information
+        patterns: '*.+(ts)',  // in this scenarios we only want .ts files
+                              // s. https://github.com/isaacs/minimatch for more information
+        
+        // s. controllers/imports/index.ts
+        imports: {
+            foo: 'Marcel',
+            'bar-BuZZ': 42,
+            // functions must be wrapped into a getter
+            baz: () => getBaz,
+        }
     });
 
     await app.listen(8080);
