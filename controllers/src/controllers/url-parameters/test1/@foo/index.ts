@@ -28,47 +28,22 @@ import {
     IHttpResponse,
 } from "@egomobile/http-server";
 
-// all controller classes have to be exported as 'default'
-// and be marked with `@Controller()` decorator
 @Controller()
-export default class IndexController extends ControllerBase {
-    // the full path is: http://localhost:8080
+export default class Test1FooParameterController extends ControllerBase {
+    // the full path is: http://localhost:8080/url-parameters/test1/:foo
+    // while value of `foo` will be written to `request.params.foo`
     //
     // because:
-    // 1.) the relative path of this file is `/index.ts`
-    //     so we do not have a suffix here
-    // 2.) the name of this method is `index`
-    //     so we also do not have a suffix here
-    // 3.) we do not have an explicit path defined
-    //     with `@GET()`
+    // - the relative path is `/url-parameters/test1/index.ts`
+    // - all directories and files with `@` prefix in a path,
+    //   will be converted to URL parameters
+    // - the method name is `index` and no explicit path is defined in `@GET()`
+    //   so no suffix is added
     @GET()
     async index(request: IHttpRequest, response: IHttpResponse) {
-        response.write(`Hello! ${this.__file}`);
-    }
-
-    // the full path is: http://localhost:8080/FOO
-    //
-    // because:
-    // 1.) the relative path of this file is `/index.ts`
-    //     so we do not have a suffix here
-    // 2.) the name of this method is `foo`
-    //     so we add this as suffix
-    // 3.) we do not have an explicit path defined
-    //     with `@GET()`
-    @GET()
-    async FOO(request: IHttpRequest, response: IHttpResponse) {
-        response.write(`Hello, FOO! ${this.__file}`);
-    }
-
-    // the full path is: http://localhost:8080/BAR
-    //
-    // because:
-    // 1.) the relative path of this file is `/index.ts`
-    //     so we do not have a suffix here
-    // 2.) we defined an explicit path with `@GET()`
-    // 3.) anything else will be ignored
-    @GET('/BAR')
-    async lorem(request: IHttpRequest, response: IHttpResponse) {
-        response.write(`Hello, BAR! ${this.__file}`);
+        // example: http://localhost:8080/url-parameters/test1/Tanja%20K
+        //
+        // `request.params.foo` would have the value `Tanja K`
+        response.write(`Hello, ${request.params!.foo}! (${this.__file})`);
     }
 }
