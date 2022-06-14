@@ -1,0 +1,9 @@
+{
+    "extends": "@egomobile/tsconfig",
+    "compilerOptions": {
+        "target": "es2019",
+        "lib": [
+            "es2019"
+        ]
+    }
+}
