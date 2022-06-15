@@ -63,7 +63,9 @@ export default class SerializerController extends ControllerBase {
 
         const filteredUsers = _(allUsers)
             .orderBy(
+                // field names
                 Object.entries(listQuery.sort).map((entry) => entry[0] as any),
+                // sort orders: 'asc', 'desc'
                 Object.entries(listQuery.sort).map((entry) => entry[1] as any),
             )
             .drop(offset)
