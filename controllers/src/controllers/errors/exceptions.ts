@@ -20,56 +20,40 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+import _ from 'lodash';
 import {
     Controller,
     ControllerBase,
+    ErrorHandler,
     GET,
     IHttpRequest,
     IHttpResponse,
-    Serializer,
 } from "@egomobile/http-server";
 
 @Controller()
-export default class SerializerController extends ControllerBase {
-    // the full path is: http://localhost:8080/serializer
+export default class ExceptionsController extends ControllerBase {
+    // the full path is: http://localhost:8080/errors/exceptions
     //
     // because:
-    // - method is called `index`, so no suffix is used
+    // - the relative path is `/errors/exceptions.ts`
+    //   so `exceptions` is added as first suffix
+    // - method is called `index`, so no additional suffix is added
     // - we defined no explicit path with `@GET()`
     @GET()
     async index(
         request: IHttpRequest, response: IHttpResponse,
     ) {
-        // s. `serializeResponse()`
-        return {
-            foo: request.query?.get('foo'),
-            bar: request.query?.get('bar'),
-        };
+        throw new Error('You send following query parameters: ' + JSON.stringify(request.query!, null, 2));
     }
 
-    // the full path is: http://localhost:8080/serializer/array
-    //
-    // because:
-    // - method is called `foo`, so this is added as suffix
-    // - we defined no explicit path with `@GET()`
-    @GET()
-    async array(
+    // for technical reasons the error handler must be defined at the end
+    // of the controller, otherwise the other methods will not realize
+    // that this method has been setuped
+    @ErrorHandler()
+    async handleError(
+        error: any,
         request: IHttpRequest, response: IHttpResponse,
     ) {
-        // s. `serializeResponse()`
-        return ["foo", "bar", "buzz"];
-    }
-
-    // for technical reasons the serializer must be defined at the end
-    // of the controller, otherwise the other methods will not realize
-    // that this serializer has been setuped
-    @Serializer()
-    async serializeResponse(result: any, request: IHttpRequest, response: IHttpResponse) {
-        // will receive the method results of
-        // any request handler into 'result', defined in this controller
-        // so this method is able to prepare and send this
-        // data back to the client
-
-        response.write(JSON.stringify(result));
+        response.write(`ERROR: ${error} (${this.__file})`);
     }
 }

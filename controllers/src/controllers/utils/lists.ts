@@ -32,7 +32,7 @@ import { apiResponse, parseListQuery } from '@egomobile/api-utils';
 import { exampleUsers } from './_data';
 
 @Controller()
-export default class SerializerController extends ControllerBase {
+export default class ListsController extends ControllerBase {
     // the full path is: http://localhost:8080/utils/lists
     //
     // because:
