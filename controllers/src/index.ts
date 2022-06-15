@@ -24,6 +24,7 @@ import { handleApiError, handleApiNotFound } from '@egomobile/api-utils';
 import cors from 'cors';  // npm i cors && npm i -D @types/cors
 import createServer from '@egomobile/http-server';
 import path from 'path';
+import swaggerDocument from './swagger';
 
 function getBaz(): string {
     return 'Kloubert';
@@ -57,6 +58,10 @@ async function main() {
             'bar-BuZZ': 42,
             // functions must be wrapped into a getter
             baz: () => getBaz,
+        },
+
+        swagger: {
+            document: swaggerDocument
         },
 
         // the following handlers can be used for some debugging
