@@ -57,6 +57,32 @@ async function main() {
             'bar-BuZZ': 42,
             // functions must be wrapped into a getter
             baz: () => getBaz,
+        },
+
+        // the following handlers can be used for some debugging
+        onControllerInitialized: ({ controllerClass, relativePath }) => {
+            const controllerClassName = controllerClass.name;
+
+            console.log('[🧰] Controller:', relativePath, controllerClassName );
+            console.log(`  - controller: ${controllerClassName}`);
+
+            console.log();
+        },
+        onControllerMethodInitialized: ({ controllerClass, methods, name, relativePath }) => {
+            const path = methods[0]?.path;
+
+            console.log(
+                '[⛏] Controller method:', relativePath,
+            );
+
+            console.log(`  - path: ${typeof path === 'function' ? `(${path})` : path}`);
+            console.log(`  - HTTP methods: ${methods.map((m) => m.method.toUpperCase()).join(', ')}`);
+            console.log(`  - controller method: ${controllerClass.name}.${name}`);
+
+            console.log();
+        },
+        onSwaggerInitialized: ({}) => {
+            console.log('[📚] Swagger documentation initialized');
         }
     });
 
