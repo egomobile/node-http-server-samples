@@ -26,7 +26,7 @@ from this directory (maybe in a terminal) to initialize and start the applicatio
 | [Dependency injection](./src/controllers/imports) | How to work with [@Import() decorator](https://egomobile.github.io/node-http-server/modules.html#Import). | |
 | [Import request data as parameters](./src/controllers/parameter-decorator) | How to work with [@Parameter() decorator](https://egomobile.github.io/node-http-server/modules.html#Parameter) and their shorthands. | |
 | [Serialization](./src/controllers/serializer) | How to work with [@Serializer() decorator](https://egomobile.github.io/node-http-server/modules.html#Serializer), which can automatically take each result data of a request handler method, prepare it and send it back to the client in a standarized way. | |
-| [API utility](./src/controllers/utils) | Different endpoints, which show, how to use the [api-utils extension](https://github.com/egomobile/node-api-utils). | |
+| [API utilities](./src/controllers/utils) | Different endpoints, which show, how to use the [api-utils extension](https://github.com/egomobile/node-api-utils). | |
 
 ## Documentation
 
