@@ -28,6 +28,11 @@ from this directory (maybe in a terminal) to initialize and start the applicatio
 | [Serialization](./src/controllers/serializer) | How to work with [@Serializer() decorator](https://egomobile.github.io/node-http-server/modules.html#Serializer), which can automatically take each result data of a request handler method, prepare it and send it back to the client in a standarized way. | |
 | [API utility](./src/controllers/utils) | Different endpoints, which show, how to use the [api-utils extension](https://github.com/egomobile/node-api-utils). | |
 
+## Documentation
+
+The API documentation can be found
+[here](https://egomobile.github.io/node-http-server/).
+
 ## Credits
 
 - [randomuser.me](https://randomuser.me/)
