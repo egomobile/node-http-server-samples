@@ -13,6 +13,10 @@ npm start
 
 from this directory (maybe in a terminal) to initialize and start the application, and keep sure that port `8080` is currently not in use.
 
+## Credits
+
+- [randomuser.me](https://randomuser.me/)
+
 ## License
 
 MIT © [e.GO Mobile](https://e-go-mobile.com/), Aachen, Germany
