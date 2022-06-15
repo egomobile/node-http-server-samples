@@ -20,7 +20,7 @@ from this directory (maybe in a terminal) to initialize and start the applicatio
 | [Setup](./src/index.ts) | Initialize and setup controllers. | |
 | [Basics](./src/controllers) | The `.ts` files in this folder demonstrate the basics, especially how the path mapping works. | |
 | [URL parameters](./src/controllers/url-parameters) | Shows [url parameters](https://egomobile.github.io/node-http-server/interfaces/IHttpRequest.html#params) in action. | |
-| [Middlewares](./src/controllers/middlewares) | Endpoints demonstrating the usage of [build-in middlesware](https://github.com/egomobile/node-http-server/tree/master/src/middlewares). | |
+| [Middlewares](./src/controllers/middlewares) | Endpoints demonstrating the usage of [build-in middleswares](https://github.com/egomobile/node-http-server/tree/master/src/middlewares). | |
 | [Error handling](./src/controllers/errors) | Different ways and types of error handling. | |
 | [Swagger / Open API](./src/controllers/pet-store) | This is an adaption of the official [Pet Store example](https://petstore3.swagger.io/). | |
 | [Dependency injection](./src/controllers/imports) | How to work with [@Import() decorator](https://egomobile.github.io/node-http-server/modules.html#Import). | |
