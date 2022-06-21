@@ -48,7 +48,7 @@ export default class ValidateMiddlewareController extends ControllerBase {
     // - relative path is `/middlewares/validate-query.ts`
     //   and `validate-query` is used as first suffix
     // - method is called `index`, so no additional suffix is used
-    // - we defined no explicit path with `@PATCH()`
+    // - we defined no explicit path with `@GET()`
     @GET([
         validateQuery(querySchema, handleValidationError)
     ])

@@ -37,7 +37,7 @@ export default class AuthMiddlewareController extends ControllerBase {
     // - relative path is `/middlewares/auth.ts`
     //   and `auth` is used as first suffix
     // - method is called `index`, so no additional suffix is used
-    // - we defined no explicit path with `@POST()`
+    // - we defined no explicit path with `@GET()`
     @GET([
         auth('Bearer', 'myBearer')
     ])

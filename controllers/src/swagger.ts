@@ -26,10 +26,6 @@ const swaggerDocument: ControllersSwaggerBaseDocument = {
             "description": "localhost",
             "url": "http://localhost:8080/"
         },
-        {
-            "description": "localhost",
-            "url": "http://localhost:8080/"
-        }
     ],
 
     "tags": [

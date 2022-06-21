@@ -44,7 +44,7 @@ export default class ExceptionsController extends ControllerBase {
     // - the relative path is `/errors/validations.ts`
     //   so `validations` is added as first suffix
     // - method is called `index`, so no additional suffix is added
-    // - we defined no explicit path with `@GET()`
+    // - we defined no explicit path with `@PUT()`
     @PUT(putSchema)
     async index(
         request: IHttpRequest, response: IHttpResponse,

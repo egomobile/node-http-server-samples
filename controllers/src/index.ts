@@ -61,14 +61,14 @@ async function main() {
         },
 
         swagger: {
-            document: swaggerDocument
+            document: swaggerDocument,
         },
 
         // the following handlers can be used for some debugging
         onControllerInitialized: ({ controllerClass, relativePath }) => {
             const controllerClassName = controllerClass.name;
 
-            console.log('[🧰] Controller:', relativePath, controllerClassName );
+            console.log('[🧰] Controller:', relativePath, controllerClassName);
             console.log(`  - controller: ${controllerClassName}`);
 
             console.log();
@@ -86,9 +86,9 @@ async function main() {
 
             console.log();
         },
-        onSwaggerInitialized: ({}) => {
+        onSwaggerInitialized: ({ }) => {
             console.log('[📚] Swagger documentation initialized');
-        }
+        },
     });
 
     await app.listen(8080);

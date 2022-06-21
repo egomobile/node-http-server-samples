@@ -37,7 +37,7 @@ export default class ApiKeyMiddlewareController extends ControllerBase {
     // - relative path is `/middlewares/api-key.ts`
     //   and `api-key` is used as first suffix
     // - method is called `index`, so no additional suffix is used
-    // - we defined no explicit path with `@POST()`
+    // - we defined no explicit path with `@GET()`
     @GET([
         apiKey('myAPIKey')
     ])
