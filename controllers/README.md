@@ -23,7 +23,7 @@ from this directory (maybe in a terminal) to initialize and start the applicatio
 | [Middlewares](./src/controllers/middlewares) | Endpoints demonstrating the usage of [build-in middleswares](https://github.com/egomobile/node-http-server/tree/master/src/middlewares). | |
 | [Error handling](./src/controllers/errors) | Different ways and types of error handling. | |
 | [Swagger / Open API](./src/controllers/pet-store) | This is an adaption of the official [Pet Store example](https://petstore3.swagger.io/). | |
-| [Validations](./src/controllers/validations) | Examples how to validate request data. | |
+| [Validation](./src/controllers/validations) | Examples how to validate request data. | |
 | [Dependency injection](./src/controllers/imports) | How to work with [@Import() decorator](https://egomobile.github.io/node-http-server/modules.html#Import). | |
 | [Import request data as parameters](./src/controllers/parameter-decorator) | How to work with [@Parameter() decorator](https://egomobile.github.io/node-http-server/modules.html#Parameter) and their shorthands. | |
 | [Serialization](./src/controllers/serializer) | How to work with [@Serializer() decorator](https://egomobile.github.io/node-http-server/modules.html#Serializer), which can automatically take each result data of a request handler method, prepare it and send it back to the client in a standarized way. | |
