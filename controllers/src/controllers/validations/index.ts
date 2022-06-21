@@ -95,6 +95,13 @@ export default class ValidationsController extends ControllerBase {
         response.write(`OK.swagger: ${request.query!.get('foo')}`);
     }
 
+    // the full path is: http://localhost:8080/validations/joi
+    //
+    // because:
+    // - the relative path is `/validations/index.ts`
+    //   so no first suffix is added
+    // - method is called `joi`, so this is added as suffix
+    // - we defined no explicit path with `@POST()`
     @POST({
         "schema": postSchema,
         onValidationFailed
