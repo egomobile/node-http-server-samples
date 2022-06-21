@@ -46,6 +46,7 @@ const onValidationWithDocumentationFailed: JsonSchemaValidationFailedHandler =
         response.end();
     };
 
+// this custom error handler is also optional
 const onValidationFailed: ValidationFailedHandler =
     async (error, request, response) => {
         response.write('[JOI VALIDATION ERROR]: ' + error.message);
